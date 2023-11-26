@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>background/registration_form_.jpg</file>
+    </qresource>
+</RCC>

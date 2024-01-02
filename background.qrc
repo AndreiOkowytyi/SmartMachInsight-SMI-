@@ -1,5 +1,20 @@
 <RCC>
     <qresource prefix="/">
         <file>background/registration_form_.jpg</file>
+        <file>background/no_image_.jpg</file>
+        <file>background/find_.jpg</file>
+        <file>background/find_active_.jpg</file>
+        <file>background/back_p_.jpg</file>
+        <file>background/back_a_.jpg</file>
+        <file>background/exit_a_.jpg</file>
+        <file>background/exit_p_.jpg</file>
+        <file>background/plus_position_a_.jpg</file>
+        <file>background/plus_position_p_.jpg</file>
+        <file>background/message_a_.jpg</file>
+        <file>background/message_p_.jpg</file>
+        <file>background/personal_data_a_.jpg</file>
+        <file>background/personal_data_p_.jpg</file>
+        <file>background/update_a_.jpg</file>
+        <file>background/update_p_.jpg</file>
     </qresource>
 </RCC>

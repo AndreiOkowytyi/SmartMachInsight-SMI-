@@ -1,41 +1,54 @@
 #include "window_registreation.h"
 #include <style.h>
 
-WindowRegistration::WindowRegistration(QWidget *parent) : QMainWindow(parent), p_windowRegistration(new Ui::TaskBoard) {
+WindowRegistration::WindowRegistration(QWidget *parent) : QMainWindow(parent), p_windowRegistration(new Ui_WindowRegistration) {
 
     p_windowRegistration->setupUi(this);
 
-    this->p_windowRegistration->label_4->close();
-
-    this->p_windowRegistration->lineEdit    ->setStyleSheet(StyleLoginForm::entryField());
-    this->p_windowRegistration->lineEdit_2  ->setStyleSheet(StyleLoginForm::entryField());
-    this->p_windowRegistration->pushButton  ->setStyleSheet(StyleLoginForm::confirmationButton());
-    this->p_windowRegistration->pushButton_2->setStyleSheet(StyleLoginForm::confirmationButton());
-
     this->p_socket = new Socket;
 
-    this->p_windowRegistration->lineEdit_2->setEchoMode(QLineEdit::Password);
+    style();
+    connectSlots();
 
-    this->p_windowRegistration->label_6->setText(version);
-    this->p_windowRegistration->label_6->setStyleSheet(StyleLoginForm::version());
+    this->p_windowRegistration->l_message->close();
 
-    /*QObject::connect(this->p_main->pushButton, &QPushButton::clicked, this, [this](){
+    this->p_windowRegistration->l_e_passworld->setEchoMode(QLineEdit::Password);
 
-        if(!this->p_socket->connectedToServer())  this->p_main->label_4->show();;
-        this->p_formRegistration = new FormRegistration(this);
-        this->p_main->widget->close();
-        p_formRegistration->show();
-    });*/
-
-    QObject::connect(this->p_windowRegistration->pushButton_2, &QPushButton::clicked, this, [this](){
-
-        if(!this->p_socket->connectedToServer())  this->p_windowRegistration->label_4->show();;
-    });
+    this->p_windowRegistration->l_vesion->setText(version);
 }
 
-WindowRegistration::~WindowRegistration()
-{
+WindowRegistration::~WindowRegistration() {
+
     delete p_windowRegistration;
     delete p_socket;
+    if(p_workingWindow != nullptr) delete p_workingWindow;
 }
 
+void WindowRegistration::style() {
+
+    // Стиль для QLineEdit
+    this->p_windowRegistration->l_e_login    ->setStyleSheet(StyleLoginForm::entryField());
+    this->p_windowRegistration->l_e_passworld  ->setStyleSheet(StyleLoginForm::entryField());
+
+    // Стиль для QPushButton
+    this->p_windowRegistration->p_b_entrance  ->setStyleSheet(StyleLoginForm::confirmationButton());
+    this->p_windowRegistration->p_b_new_account->setStyleSheet(StyleLoginForm::confirmationButton());
+
+    // Стиль для QLabel
+    this->p_windowRegistration->l_vesion->setStyleSheet(StyleLoginForm::version());
+}
+
+void WindowRegistration::connectSlots() {
+
+    QObject::connect(this->p_windowRegistration->p_b_entrance, &QPushButton::clicked, this, [this](){
+
+        this->p_workingWindow = new WorkingWindow;
+        this->p_workingWindow->show();
+        this->close();
+    });
+
+    QObject::connect(this->p_windowRegistration->p_b_new_account, &QPushButton::clicked, this, [this](){
+
+        if(!this->p_socket->connectedToServer())  this->p_windowRegistration->l_message->show();;
+    });
+}

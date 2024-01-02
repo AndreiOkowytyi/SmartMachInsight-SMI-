@@ -57,7 +57,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="l_e_login">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -67,7 +67,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="l_e_passworld">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -106,7 +106,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#d5d5d5;&quot;&gt;Пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="p_b_entrance">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -119,7 +119,7 @@
       <string>Виконати вхід</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="p_b_new_account">
      <property name="geometry">
       <rect>
        <x>180</x>
@@ -145,7 +145,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#d5d5d5;&quot;&gt;Ver.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="l_message">
      <property name="geometry">
       <rect>
        <x>515</x>
@@ -158,7 +158,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Немає підключення до серверу&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="l_vesion">
      <property name="geometry">
       <rect>
        <x>40</x>

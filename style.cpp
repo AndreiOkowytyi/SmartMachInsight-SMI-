@@ -1,24 +1,22 @@
 #include <style.h>
 
+// BLOCK StyleLoginForm
+
 QString StyleLoginForm::entryField() {
 
     return "QLineEdit{"
            "border-radius: 6px;"
            "}";
-
 }
 
 QString StyleLoginForm::confirmationButton() {
 
     return "QPushButton {"
-
            "color: white;"
            "border-radius: 1px;"
            "border-left: 2px solid white;"
            "}"
-
            "QPushButton:hover {"
-
            "background-color:#323434;"
            "color: white;"
            "border-radius: 3px;"
@@ -28,187 +26,206 @@ QString StyleLoginForm::confirmationButton() {
 
 QString StyleLoginForm::version() {
 
-    return "QLabel {color: white;}";
+    return "QLabel {color: white;};";
 }
 
-/*QString StyleWorkingWindow::iconsNewTask() {
+// BLOCK StyleWorkingWindow
 
-    return "QToolButton{"
-           "image: url(:/icons/cross_a_.jpg);"
-           "background-color: #464646 ;"
+QString StyleWorkingWindow::find() {
+
+    return "QToolButton {"
+           "background-color:#b8f8f8;"
+           "border-radius: 5px;"
+           "image: url(:/background/find_.jpg);"
            "margin: -1px;"
            "}"
            "QToolButton:hover{"
-           "image: url(:/icons/cross_p_.jpg);"
+           "image: url(:/background/find_active_.jpg);"
            "margin: -1px;"
-           "};";
+           "}";
 }
 
-QString StyleWorkingWindow::toolButtonAccount() {
+QString StyleWorkingWindow::search() {
 
-    return "QToolButton{"
-           "image: url(:/icons/setting_account_p_.jpg);"
-           "background-color: #464646 ;"
+    return "QLineEdit {"
+           "background-color: white;"
+           "border: 1px solid #cbf3f0;"
+           "border-radius: 8px;"
+           "padding: 2px;"
+           "}";
+}
+
+QString StyleWorkingWindow::widgetSearch() {
+
+    return "QWidget {"
+           "background-color:#626262;"
+           "border-radius: 10px;"
+           "color: black;"
+           "}";
+}
+
+QString StyleWorkingWindow::buttonControlPanel() {
+
+    return "QPushButton{"
+           "border:none;"
+           "color:white;"
+           "}"
+           "QPushButton:hover {"
+           "background-color:#323434;"
+           "color: white;"
+           "border-radius: 10px;"
+           "}";
+}
+
+QString StyleWorkingWindow::back() {
+
+    return "QToolButton {"
+           "background-color:#cbf3f0;"
+           "border-radius: 5px;"
+           "image: url(:/background/back_p_.jpg);"
            "margin: -1px;"
            "}"
            "QToolButton:hover{"
-           "image: url(:/icons/setting_account_a_.jpg);"
+           "image: url(:/background/back_a_.jpg);"
            "margin: -1px;"
-           "};";
+           "}";
 }
 
-QString StyleWorkingWindow::setting() {
+QString StyleWorkingWindow::exit() {
 
-    return "QToolButton{"
-           "image: url(:/icons/setting_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
+    return "QToolButton {"
+           "background-color:#cbf3f0;"
+           "border-radius: 5px;"
+           "image: url(:/background/exit_p_.jpg);"
            "margin: -1px;"
            "}"
            "QToolButton:hover{"
-           "image: url(:/icons/setting_a_.jpg);"
+           "image: url(:/background/exit_a_.jpg);"
            "margin: -1px;"
-           "};";
+           "}";
 }
 
-QString StyleWorkingWindow::iconTeam() {
+QString StyleWorkingWindow::plusPosition() {
 
-    return "QToolButton{"
-           "image: url(:/icons/team_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
+    return "QToolButton {"
+           "background-color:#cbf3f0;"
+           "border-radius: 5px;"
+           "image: url(:/background/plus_position_p_.jpg);"
            "margin: -1px;"
            "}"
            "QToolButton:hover{"
-           "image: url(:/icons/team_a_.jpg);"
+           "image: url(:/background/plus_position_a_.jpg);"
            "margin: -1px;"
-           "};";
+           "}";
 }
 
-QString StyleWorkingWindow::iconMessage() {
+QString StyleWorkingWindow::scrollArea() {
 
-    return "QToolButton{"
-           "image: url(:/icons/message_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
+    return "QScrollArea {"
+          "border-radius: 6px;"
+          "border: 2px solid black;"
+           "}"
+           "QScrollBar:vertical {"
+           "border: none;;"
+           "background: #FDB96F;"
+           "width: 4px; "
+           "margin: 0px 0px 0px 0px;"
+    "}";
+}
+
+QString StyleWorkingWindow::storage() {
+
+    return "QWidget {"
+           "border-radius: 6px;"
+           "border: 2px solid black;"
+           "}";
+}
+
+QString StyleWorkingWindow::lable() {
+
+    return "QLabel {"
+           "color: white;"
+           "}";
+}
+
+QString StyleWorkingWindow::personalData() {
+
+    return "QToolButton {"
+           "background-color:#cbf3f0;"
+           "border-radius: 5px;"
+           "image: url(:/background/personal_data_p_.jpg);"
            "margin: -1px;"
            "}"
            "QToolButton:hover{"
-           "image: url(:/icons/message_a_.jpg);"
+           "image: url(:/background/personal_data_a_.jpg);"
            "margin: -1px;"
-           "};";
+           "}";
 }
 
-QString StyleWorkingWindow::iconStatistics() {
+QString StyleWorkingWindow::update() {
 
-    return "QToolButton{"
-           "image: url(:/icons/statistics_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
+    return "QToolButton {"
+           "background-color:#cbf3f0;"
+           "border-radius: 5px;"
+           "image: url(:/background/update_p_.jpg);"
            "margin: -1px;"
            "}"
            "QToolButton:hover{"
-           "image: url(:/icons/statistics_a_.jpg);"
+           "image: url(:/background/update_a_.jpg);"
            "margin: -1px;"
-           "};";
+           "}";
 }
 
-QString StyleWorkingWindow::iconTask() {
+QString StyleWorkingWindow::message() {
 
-    return "QToolButton{"
-           "image: url(:/icons/tasks_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
+    return "QToolButton {"
+           "background-color:#cbf3f0;"
+           "border-radius: 5px;"
+           "image: url(:/background/message_p_.jpg);"
            "margin: -1px;"
            "}"
            "QToolButton:hover{"
-           "image: url(:/icons/tasks_a_.jpg);"
+           "image: url(:/background/message_a_.jpg);"
            "margin: -1px;"
-           "};";
+           "}";
 }
 
-QString StyleWorkingWindow::arroe() {
+QString StyleWorkingWindow::oneLineTable() {
 
-    return "QToolButton{"
-           "image: url(:/icons/arrow_p_.jpg);"
-           "background-color:#f7f7ff ;"
-           "border: none;"
-           "margin: -1px;"
+    return "QPushButton{"
+           "border:none;"
+           "color:black;"
+           "background-color:white;"
            "}"
-           "QToolButton:hover{"
-           "image: url(:/icons/arrow_a_.jpg);"
-           "margin: -1px;"
-           "};";
+           "QPushButton:hover {"
+           "background-color:#FDB96F;"
+           "color: black;"
+           "}";
 }
 
-QString StyleWorkingWindow::arrow_1() {
+QString StyleWorkingWindow::secondLineTable() {
 
-    return "QToolButton{"
-           "image: url(:/icons/arrow_p_1_.jpg);"
-           "background-color:#ffffb0 ;"
-           "border: none;"
-           "margin: -1px;"
+    return "QPushButton{"
+           "border:none;"
+           "color:black;"
+           "background-color:#FEE4C2;"
            "}"
-           "QToolButton:hover{"
-           "image: url(:/icons/arrow_a_1_.jpg);"
-           "margin: -1px;"
-           "};";
+           "QPushButton:hover {"
+           "background-color:#FDB96F;"
+           "color: black;"
+           "}";
 }
 
-QString StyleWorkingWindow::arrow_2() {
+QString StyleWorkingWindow::column() {
 
-    return "QToolButton{"
-           "image: url(:/icons/arrow_p_2_.jpg);"
-           "background-color:#ffffce ;"
-           "border: none;"
-           "margin: -1px;"
+    return "QPushButton{"
+           "border:none;"
+           "color:black;"
+           "background-color:white;"
            "}"
-           "QToolButton:hover{"
-           "image: url(:/icons/arrow_a_2_.jpg);"
-           "margin: -1px;"
-           "};";
+           "QPushButton:hover {"
+           "background-color:#FDB96F;"
+           "border-radius: 10px;"
+           "color: black;"
+           "}";
 }
-
-
-QString StyleWorkingWindow::totalNumberTask() {
-
-    return "QToolButton{"
-           "image: url(:/icons/total_number_of_tasks_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
-           "margin: -1px;"
-           "}"
-           "QToolButton:hover{"
-           "image: url(:/icons/total_number_of_tasks_a_.jpg);"
-           "margin: -1px;"
-           "};";
-}
-
-
-QString StyleWorkingWindow::taskInTheQueue() {
-
-    return "QToolButton{"
-           "image: url(:/icons/tasks_in_the_queue_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
-           "margin: -1px;"
-           "}"
-           "QToolButton:hover{"
-           "image: url(:/icons/tasks_in_the_queue_a_.jpg);"
-           "margin: -1px;"
-           "};";
-}
-
-QString StyleWorkingWindow::completedTask() {
-
-    return "QToolButton{"
-           "image: url(:/icons/completed_tasks_p_.jpg);"
-           "background-color: white ;"
-           "border: none;"
-           "margin: -1px;"
-           "}"
-           "QToolButton:hover{"
-           "image: url(:/icons/completed_tasks_a_.jpg);"
-           "margin: -1px;"
-           "};";
-}*/

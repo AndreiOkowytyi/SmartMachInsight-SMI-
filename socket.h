@@ -5,7 +5,7 @@
 
 #include <QTcpSocket>
 
-const QString version("0.105");
+#include "operations.h"
 
 class Socket : public QObject {
   Q_OBJECT
@@ -14,14 +14,14 @@ class Socket : public QObject {
   Socket();
   bool connectedToServer();
   bool versionApplication();
+  void sendToServer(QString massege);
 
  private:
-
-  void sendToServer(QString massege);
 
   QTcpSocket* p_socket = nullptr;
   QByteArray mData;
   quint16 m_bufer = 0;
+
 
   bool m_connect_           = false;
   bool m_version_validator_ = false;

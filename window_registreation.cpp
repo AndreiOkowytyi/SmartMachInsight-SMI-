@@ -1,5 +1,6 @@
 #include "window_registreation.h"
-#include <style.h>
+#include "style.h"
+#include "communication_protocol.h"
 
 WindowRegistration::WindowRegistration(QWidget *parent) : QMainWindow(parent), p_windowRegistration(new Ui_WindowRegistration) {
 
@@ -14,7 +15,7 @@ WindowRegistration::WindowRegistration(QWidget *parent) : QMainWindow(parent), p
 
     this->p_windowRegistration->l_e_passworld->setEchoMode(QLineEdit::Password);
 
-    this->p_windowRegistration->l_vesion->setText(version);
+    this->p_windowRegistration->l_vesion->setText(VERSION_CLIENT);
 }
 
 WindowRegistration::~WindowRegistration() {
@@ -40,15 +41,32 @@ void WindowRegistration::style() {
 
 void WindowRegistration::connectSlots() {
 
-    QObject::connect(this->p_windowRegistration->p_b_entrance, &QPushButton::clicked, this, [this](){
+    QObject::connect(this->p_windowRegistration->p_b_entrance,    &QPushButton::clicked, this, &WindowRegistration::entrance);
+    QObject::connect(this->p_windowRegistration->p_b_new_account, &QPushButton::clicked, this, &WindowRegistration::newAccaunt);
+}
 
-        this->p_workingWindow = new WorkingWindow;
-        this->p_workingWindow->show();
-        this->close();
-    });
+void WindowRegistration::entrance() {
 
-    QObject::connect(this->p_windowRegistration->p_b_new_account, &QPushButton::clicked, this, [this](){
+    std::string as("");
 
-        if(!this->p_socket->connectedToServer())  this->p_windowRegistration->l_message->show();;
-    });
+    std::string login_passworld_version = this->p_windowRegistration->l_e_login->text().toStdString() + ' ' +
+                                          this->p_windowRegistration->l_e_passworld->text().toStdString() + ' ' + VERSION_CLIENT;
+
+    CommunicationProtocol communicationProtocol;
+
+    std::string temp = communicationProtocol.sendingMessages(as, ListOfOperations::Entrance,
+            ReadWrite::Read, ImplementingRequestToTheServer::CheckingAccountAndClientVersion,
+                                          DataType::Text, login_passworld_version);
+    qDebug() << this->p_windowRegistration->l_e_login->text();
+
+    this->p_socket->sendToServer(this->p_windowRegistration->l_e_login->text());
+
+    this->p_workingWindow = new WorkingWindow;
+    this->p_workingWindow->show();
+    this->close();
+}
+
+void WindowRegistration::newAccaunt() {
+
+    if(!this->p_socket->connectedToServer())  this->p_windowRegistration->l_message->show();
 }

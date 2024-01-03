@@ -1,5 +1,6 @@
 #include <socket.h>
 
+
 Socket::Socket() {
 
     this->p_socket = new QTcpSocket(this);
@@ -8,14 +9,13 @@ Socket::Socket() {
     QObject::connect(this->p_socket, SIGNAL(readyRead()), this, SLOT(sl_readyRead()));
     QObject::connect(this->p_socket, &QTcpSocket::disconnected, this->p_socket, [this]()
 
-        {this->p_socket->close();
+  {this->p_socket->close();
         this->m_connect_ = false;
     });
 
     QObject::connect(this->p_socket, &QTcpSocket::connected, this, [this]() {
 
         this->m_connect_ = true;
-        this->sendToServer(version);
     });
 }
 
@@ -25,14 +25,32 @@ bool Socket::versionApplication() { return this->m_version_validator_; }
 
 void Socket::sendToServer(QString message) {
 
-     this->mData.clear();
+
+
+     /*this->mData.clear();
+
      QDataStream out(&mData, QIODevice::WriteOnly);
-     out.setVersion(QDataStream::Version::Qt_6_0);
+
+     out.setVersion(QDataStream::Version::);
+
      out << quint16(0) << message;
+
      out.device()->seek(0);
+
      out << quint16(mData.size() - sizeof(quint16));
 
-     if(p_socket->isOpen())this->p_socket->write(mData);
+     if(p_socket->isOpen())this->p_socket->write(mData);*/
+
+    QString longMessage = "Привет, сервер!"; // Создание длинного сообщения
+    QByteArray messageData = message.toUtf8();
+
+    QString temp = messageData;
+    qDebug() << temp;
+
+     QDataStream out(p_socket);
+     out.setVersion(QDataStream::Qt_5_15);
+
+     out << messageData;
 }
 
 void Socket::sl_readyRead() {

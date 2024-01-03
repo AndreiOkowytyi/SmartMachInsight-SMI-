@@ -5,8 +5,9 @@
 
 #include <QMainWindow>
 
-#include "socket.h"
 #include "ui_window_registreation.h"
+
+#include "socket.h"
 #include "working_window.h"
 
 /*
@@ -27,6 +28,10 @@ class WindowRegistration : public QMainWindow {
     Ui_WindowRegistration *p_windowRegistration = nullptr; // Вікно реєстрації.
     Socket                *p_socket             = nullptr; // Робота із сокетом.
     WorkingWindow         *p_workingWindow      = nullptr; // Робоче вікно.
+
+ public slots:
+    void entrance();
+    void newAccaunt();
 };
 
 #endif // WINDOW_REGISTREATION_H

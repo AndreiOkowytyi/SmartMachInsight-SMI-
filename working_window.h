@@ -6,7 +6,7 @@
 #include "ui_working_window.h"
 
 #include "window_personal_data.h"
-
+#include "communication_protocol.h"
 /*
 Класс для роботи із основним вікном.
 */

@@ -5,10 +5,17 @@
 
 #include <string>
 
+#include "ui_window_registreation.h"
+
 class CommonOperation {
  public:
     virtual void operation(std::string &data) = 0;
     virtual ~CommonOperation() {}
+
+    void setWindowRegistration(Ui_WindowRegistration *p_winRegistration);
+
+protected:
+     Ui_WindowRegistration* p_windowRegistration = nullptr;
 };
 
 class Entrance : public CommonOperation {

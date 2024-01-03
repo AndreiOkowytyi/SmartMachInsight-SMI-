@@ -12,6 +12,12 @@ void InterfaceCommonOperation::operation(std::string &data, const short index) {
     this->m_v_CommonOperation.at(index)->operation(data);
 }
 
+void InterfaceCommonOperation::setWindowRegistration(Ui_WindowRegistration *p_winReg) {
+
+    this->m_v_CommonOperation.at(0)->setWindowRegistration(p_winReg);
+    this->m_v_CommonOperation.at(1)->setWindowRegistration(p_winReg);
+}
+
 /*
 BLOCK
 */
@@ -24,6 +30,11 @@ InterfaceStorageOperation::InterfaceStorageOperation() {
 void InterfaceStorageOperation::operation(std::string &data, const short index) {
 
     this->m_v_StorageOperation.at(index)->operation(data);
+}
+
+void InterfaceStorageOperation::setWorkingWindow(Ui_WorkingWindow *p_workWin) {
+
+    this->m_v_StorageOperation.at(0)->setWorkingWindow(p_workWin);
 }
 
 /*
@@ -45,4 +56,16 @@ void Operations::operation(std::vector<std::string>& v_data) {
                             [static_cast<int>(IndexWorkingWithDataComingFromServer::DataComingFromServer)],
 
                                                     static_cast<int>(IndexWorkingWithDataComingFromServer::Operations));
+}
+
+void Operations::setOperationsWindowRegistration(Ui_WindowRegistration *p_winReg) {
+
+    InterfaceCommonOperation *p_commonOperation = dynamic_cast<InterfaceCommonOperation*>(this->m_v_InterfaceOperations.at(0).get());
+    if(p_commonOperation != nullptr)p_commonOperation->setWindowRegistration(p_winReg);
+}
+
+void Operations::setOperationsWorkingWindow(Ui_WorkingWindow *p_workWin) {
+
+    InterfaceStorageOperation *p_storageOperation = dynamic_cast<InterfaceStorageOperation*>(this->m_v_InterfaceOperations.at(1).get());
+    if(p_storageOperation != nullptr) p_storageOperation->setWorkingWindow(p_workWin);
 }
